@@ -1,12 +1,15 @@
 import {Outlet, Link, useLocation} from 'react-router-dom'
+import usePlaySong from '../hooks/usePlay'
 import Home from '../icons/Home'
 import Library from '../icons/Library'
 import Search from '../icons/Search'
+import FavoriteSong from './FavoriteSong'
 import Music from './Music'
 
 const Layout = () => {
-  
   const location = useLocation();
+
+  const {favorite, setFavorite} = usePlaySong();
 
   return (
     <div className="md:flex md:min-h-screen p-3 gap-2">          
@@ -36,6 +39,7 @@ const Layout = () => {
           </div>
           <div>
             <Music />
+            {Object.keys(favorite).length > 0 && <FavoriteSong/>}
           </div>
         </div>
       </aside>
