@@ -2,10 +2,10 @@ import {Outlet, Link, useLocation} from 'react-router-dom'
 import Home from '../icons/Home'
 import Library from '../icons/Library'
 import Search from '../icons/Search'
+import FavoriteSong from './FavoriteSong'
 
 const Layout = () => {
   const location = useLocation();
-
   return (
     <div className="md:flex md:min-h-screen p-3 gap-2">          
       <aside className="md:w-1/6 flex-col flex gap-2">
@@ -30,8 +30,9 @@ const Layout = () => {
         <div className="bg-neutral-900 py-5 px-3 rounded-xl h-full">
           <div className="flex gap-3">       
             <Library />     
-            <p className="font-semibold text-zinc-400 tracking-wide">Biblioteca</p>
+            <p className="font-semibold text-zinc-400 tracking-wide">Tus favoritos</p>                        
           </div>
+          <FavoriteSong />
         </div>
       </aside>      
       <main className="w-full">

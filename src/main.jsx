@@ -6,6 +6,7 @@ import Categories from './pages/Categories'
 import Layout from './components/Layout'
 import SearchSong from './components/SearchSong'
 import { PlayProvider } from './context/PlayContext'
+import "./assets/style.css"
 
 const router = createBrowserRouter([
   {

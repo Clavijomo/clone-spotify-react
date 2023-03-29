@@ -16,14 +16,17 @@ const SearchSong = () => {
   }
 
   return (
-    <div className="bg-zinc-800 h-screen rounded-xl overflow-x-scroll relative">
-      <div className="bg-bg-artist bg-no-repeat bg-cover h-96 bg-fixed rounded-t-lg relative">
-        <div className="bg-overlay w-full h-full absolute flex items-end p-8 rounded-t-lg">
-          <h1 className="text-6xl font-semibold">Drake</h1>
+    <div className="bg-zinc-800 h-full rounded-xl overflow-x-scroll relative">      
+      <div className="flex gap-5 p-10 items-end rounded-t-xl bg-gradient-to-t from-zinc-800 to-zinc-700">
+        <img className="w-1/6 rounded-md shadow-2xl" src="https://is1-ssl.mzstatic.com/image/thumb/Video116/v4/33/10/f7/3310f7c0-9aee-b263-99be-97602c8be731/Job6466fa82-1e20-4f12-9c34-debd240ae4c4-146375042-PreviewImage_Preview_Image_Intermediate_nonvideo_272976479_1377247079-Time1678484014455.png/305x305cc.webp" alt=""/>
+        <div className="space-y-3">
+          <h1 className="text-7xl font-semibold">Mix global</h1>
+          <p className="text-zinc-400">Lorem ipsum dolor sit amet consectetur</p>
+          <p className="text-sm text-zinc-400">2023</p>
+          <p className="text-xs">Actualizada: ahora</p>
         </div>
-      </div>      
+      </div>
       <div className="flex flex-col py-10 px-8"> 
-      <h1 className="text-2xl mb-5 font-semibold">Populares</h1> 
         {listSongs?.length && listSongs.map((item, index) => {        
           return(                      
             <Song 
@@ -33,7 +36,7 @@ const SearchSong = () => {
           )        
         })}      
       </div>      
-      {Object.keys(songPlay).length ? <PlaySong/> : null}
+      {Object.keys(songPlay).length ? <PlaySong/> : null}      
     </div>
   )  
 }

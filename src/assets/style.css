@@ -1,0 +1,21 @@
+.alert {
+  padding: 15px 20px;
+  background-color: #fff;  
+  color: #000;
+  border-radius: 115px;
+  animation-name: example;
+  animation: example 3s;
+  position: absolute;  
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: max-content;
+  margin: auto;
+  text-align: center;
+}
+
+@keyframes example {
+  0%   {bottom: -40px;}
+  50%  {bottom: 30px}
+  100% {bottom: -100px;}
+}

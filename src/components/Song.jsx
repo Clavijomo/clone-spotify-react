@@ -7,39 +7,37 @@ import Notification from './Notification'
 const Song = ({cancion, index}) => {  
   const {artist, song, album, imageAlbum, favorite, id} = cancion;
   const {setSongPlay, setListSongs, listSongs} = usePlaySong();   
-  const [notification, setNotification] = useState(false);
+  const [notification, setNotification] = useState('');
 
   const handleAddSong = () => {
     setSongPlay(cancion)                  
   }
-
   const handleFavorite = () => {    
     
     let newListSong = []    
 
     listSongs.map(song => {
-      if(song.id == cancion.id){
+      if(song.id == cancion.id) {
         if (song.favorite == true){
-        song.favorite = false
+          song.favorite = false          
+          setNotification('Eliminada');    
         }else {
-        song.favorite = true
-        }
+          song.favorite = true;  
+          setNotification('Agregada a tu lista');
+        }        
       }
-       newListSong.push(song);
-      }); 
-    setListSongs(newListSong); 
-
-    setTimeout(() => {
-      setNotification(true);      
       setTimeout(() => {
-        setNotification(false);
+        setNotification('');
       }, 2000);
-    }, 100);    
+      newListSong.push(song);
+      setListSongs(newListSong);
+      
+    });     
   }
 
   return (
     <>      
-      <div className="grid grid-cols-4 px-3 rounded-md py-1 items-center hover:transition hover:bg-zinc-700 relative">        
+      <div className="grid grid-cols-4 px-3 rounded-md py-1 items-center hover:transition hover:bg-zinc-700 relative">             
         <div className="flex justify-items-start items-center gap-x-5 my-2">
           <div>
             <p className="text-sm text-zinc-400">{id}</p>
@@ -60,9 +58,9 @@ const Song = ({cancion, index}) => {
         </div>
         <div className="mx-auto">
           <button onClick={handleAddSong} className="bg-blue-600 py-3 px-4 text-xs rounded-full">Reproducir</button>
-        </div>          
-      </div>
-      {notification && <Notification/>}      
+        </div>                     
+      </div>            
+      {notification && <Notification>{notification}</Notification>}              
     </>
   )
 }

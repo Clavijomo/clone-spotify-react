@@ -1,24 +1,31 @@
+import {useState} from 'react'
 import usePlaySong from '../hooks/usePlay'
-import Heart from '../icons/Heart'
 import {faHeart, faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Notification from './Notification'
 
 const PlaySong = () => {
 
   const {songPlay, setSongPlay, listSongs, setListSongs} = usePlaySong();
   const {album, artist, imageAlbum, song, favorite, id} = songPlay;
+  const [notification, setNotification] = useState('');
 
   const handleFavorite = () => {    
     let newListSong = [];
     listSongs.map(song => {
       if(song.id == id){
         if (song.favorite == true){
-        song.favorite = false
+          song.favorite = false;
+          setNotification('Eliminado de favoritos');
         } else {
-        song.favorite = true
+          song.favorite = true;
+          setNotification('Agregado a favoritos')
         }
       }
-        newListSong.push(song);
+      setTimeout(() => {
+        setNotification('');
+      }, 2000);
+      newListSong.push(song);
       }); 
     setListSongs(newListSong);     
   }
@@ -52,7 +59,8 @@ const PlaySong = () => {
           {<FontAwesomeIcon icon={faArrowRight} />}
           Salir
         </button>
-      </div>  
+      </div> 
+      {notification && <Notification>{notification}</Notification>} 
     </div>
   )
 }
