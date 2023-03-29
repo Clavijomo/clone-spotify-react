@@ -3,8 +3,7 @@ import {createContext, useState} from 'react'
 const PlayContext = createContext();
 
 const PlayProvider = ({children}) => {
-  const [songPlay, setSongPlay] = useState({});  
-  const [favorite, setFavorite] = useState({});
+  const [songPlay, setSongPlay] = useState({});
   const [listSongs, setListSongs] = useState([]);
 
 
@@ -12,9 +11,7 @@ const PlayProvider = ({children}) => {
     <PlayContext.Provider
       value={{
         setSongPlay,
-        songPlay,        
-        favorite,
-        setFavorite,
+        songPlay,   
         listSongs,
         setListSongs,
       }}

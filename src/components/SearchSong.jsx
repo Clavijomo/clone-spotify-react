@@ -5,7 +5,7 @@ import PlaySong from './PlaySong'
 import Song from './Song'
 
 const SearchSong = () => {
-  const {songPlay, listSongs, setListSongs} = usePlaySong();
+  const {songPlay, listSongs, setListSongs} = usePlaySong();  
   
   useEffect(() => {
     Songs();
@@ -22,18 +22,18 @@ const SearchSong = () => {
           <h1 className="text-6xl font-semibold">Drake</h1>
         </div>
       </div>      
-      <div className="flex flex-col py-10 px-8">  
+      <div className="flex flex-col py-10 px-8"> 
+      <h1 className="text-2xl mb-5 font-semibold">Populares</h1> 
         {listSongs?.length && listSongs.map((item, index) => {        
-          return(          
+          return(                      
             <Song 
               key={index}
-              item={item} 
+              cancion={item} 
             />          
           )        
         })}      
-      </div>
-
-      {Object.keys(songPlay).length && <PlaySong/>}
+      </div>      
+      {Object.keys(songPlay).length ? <PlaySong/> : null}
     </div>
   )  
 }
