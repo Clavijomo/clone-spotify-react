@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import usePlaySong from '../hooks/usePlay'
-import {faHeart, faComment} from '@fortawesome/free-solid-svg-icons'
+import {faHeart} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Notification from './Notification'
 

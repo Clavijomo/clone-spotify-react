@@ -3,6 +3,8 @@ import Home from '../icons/Home'
 import Library from '../icons/Library'
 import Search from '../icons/Search'
 import FavoriteSong from './FavoriteSong'
+import {faHeart} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Layout = () => {
   const location = useLocation();
@@ -13,23 +15,23 @@ const Layout = () => {
           <ul className="space-y-5">
             <Link
               to="/"    
-              className={`${location.pathname === '/' ? 'bg-zinc-700 text-white' : null} flex gap-2 p-2 transition rounded-lg`}
+              className={`${location.pathname === '/' ? 'bg-zinc-700 text-white' : 'text-zinc-400 hover:text-white'} flex gap-2 p-3 transition rounded-lg`}
             >
               <Search />
-              <p className="text-zinc-400 font-semibold">Inicio</p>
+              <p className="font-semibold tracking-wide">Inicio</p>
             </Link>
             <Link
               to="/search"
-              className={`${location.pathname === '/search' ? 'bg-zinc-700' : null} flex gap-2 p-2 transition rounded-lg`}
+              className={`${location.pathname === '/search' ? 'bg-zinc-700 text-white' : 'text-zinc-400 hover:text-white'} flex gap-2 p-3 transition rounded-lg`}
             >
               <Home />
-              <p className="text-zinc-400 font-semibold">Buscar</p>
+              <p className="font-semibold tracking-wide">Buscar</p>
             </Link>
           </ul>          
         </div>
         <div className="bg-neutral-900 py-5 px-3 rounded-xl h-full">
-          <div className="flex gap-3">       
-            <Library />     
+          <div className="flex gap-3 items-center px-1">       
+            <FontAwesomeIcon icon={faHeart} />
             <p className="font-semibold text-zinc-400 tracking-wide">Tus favoritos</p>                        
           </div>
           <FavoriteSong />

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import usePlaySong from "../hooks/usePlay";
 
 const FavoriteSong = () => {
